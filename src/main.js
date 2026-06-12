@@ -61,45 +61,47 @@ function closeTutorial() {
 function render() {
   app.innerHTML = `
     <section class="phone-frame" aria-live="polite">
-      <button class="tap-layer" type="button" aria-label="${step < 4 ? 'Open fortune cookie' : 'Fortune revealed'}">
-        <img class="frame-image" src="${frames[step]}" alt="" draggable="false" />
-      </button>
-      <button class="home-guide-button" type="button" aria-label="How to save to Home Screen">
-        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-          <path d="M14 30 32 14l18 16v20a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4Z" />
-          <path d="M25 54V36h14v18" />
-        </svg>
-      </button>
-      ${
-        step === 4
-          ? `
-            <div class="fortune-paper" role="status">
-              <p>${fortune}</p>
-            </div>
-            <button class="hotspot close-hotspot" type="button" aria-label="Start again"></button>
-            <button class="hotspot replay-hotspot" type="button" aria-label="Start again"></button>
-          `
-          : ''
-      }
-      ${
-        tutorialOpen
-          ? `
-            <div class="tutorial-backdrop">
-              <section class="tutorial-panel" role="dialog" aria-modal="true" aria-labelledby="tutorial-title">
-                <button class="tutorial-close" type="button" aria-label="Close tutorial">&times;</button>
-                <h1 id="tutorial-title">Save to Home Screen</h1>
-                <ol>
-                  <li>Open this page in Safari.</li>
-                  <li>Tap More, then Share.</li>
-                  <li>Choose Add to Home Screen.</li>
-                  <li>Turn on Open as Web App.</li>
-                  <li>Tap Add.</li>
-                </ol>
-              </section>
-            </div>
-          `
-          : ''
-      }
+      <div class="visual-stage">
+        <button class="tap-layer" type="button" aria-label="${step < 4 ? 'Open fortune cookie' : 'Fortune revealed'}">
+          <img class="frame-image" src="${frames[step]}" alt="" draggable="false" />
+        </button>
+        <button class="home-guide-button" type="button" aria-label="How to save to Home Screen">
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <path d="M14 30 32 14l18 16v20a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4Z" />
+            <path d="M25 54V36h14v18" />
+          </svg>
+        </button>
+        ${
+          step === 4
+            ? `
+              <div class="fortune-paper" role="status">
+                <p>${fortune}</p>
+              </div>
+              <button class="hotspot close-hotspot" type="button" aria-label="Start again"></button>
+              <button class="hotspot replay-hotspot" type="button" aria-label="Start again"></button>
+            `
+            : ''
+        }
+        ${
+          tutorialOpen
+            ? `
+              <div class="tutorial-backdrop">
+                <section class="tutorial-panel" role="dialog" aria-modal="true" aria-labelledby="tutorial-title">
+                  <button class="tutorial-close" type="button" aria-label="Close tutorial">&times;</button>
+                  <h1 id="tutorial-title">Save to Home Screen</h1>
+                  <ol>
+                    <li>Open this page in Safari.</li>
+                    <li>Tap More, then Share.</li>
+                    <li>Choose Add to Home Screen.</li>
+                    <li>Turn on Open as Web App.</li>
+                    <li>Tap Add.</li>
+                  </ol>
+                </section>
+              </div>
+            `
+            : ''
+        }
+      </div>
     </section>
   `;
 

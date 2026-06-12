@@ -1,0 +1,16 @@
+{
+  "name": "Fortune Cookie",
+  "short_name": "Fortune",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#8b2a12",
+  "theme_color": "#8b2a12",
+  "icons": [
+    {
+      "src": "/fortune-icon.jpg",
+      "sizes": "180x180",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

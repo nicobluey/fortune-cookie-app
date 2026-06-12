@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'Marker Fortune';
+  src: local('Chalkboard SE'), local('Comic Sans MS');
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100dvh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(189, 62, 24, 0.65), transparent 34%),
+    linear-gradient(180deg, #4b130b 0%, #8b2a12 48%, #51140b 100%);
+  color: #221810;
+  font-family: 'Marker Fortune', 'Comic Sans MS', cursive;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+}
+
+.phone-frame {
+  position: relative;
+  width: min(100vw, calc(100dvh * 1320 / 2343));
+  height: min(100dvh, calc(100vw * 2343 / 1320));
+  overflow: hidden;
+  background: #8b2a12;
+}
+
+.tap-layer {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tap-layer:focus-visible,
+.hotspot:focus-visible,
+.home-guide-button:focus-visible,
+.tutorial-close:focus-visible {
+  outline: 3px solid rgba(255, 214, 101, 0.95);
+  outline-offset: -6px;
+}
+
+.frame-image {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: calc(-100% * 262 / 2343);
+  width: 100%;
+  height: calc(100% * 2868 / 2343);
+  user-select: none;
+}
+
+.fortune-paper {
+  position: absolute;
+  left: 12.3%;
+  top: 25.72%;
+  width: 69.5%;
+  height: 23.85%;
+  display: grid;
+  place-items: center;
+  padding: 5.2% 8.5% 6.4%;
+  background:
+    linear-gradient(
+      90deg,
+      #ecc287 0%,
+      #edc489 15%,
+      #efcc94 34%,
+      #f1cf95 50%,
+      #efcc94 66%,
+      #eec68c 85%,
+      #edc489 100%
+    );
+  pointer-events: none;
+}
+
+.fortune-paper p {
+  max-width: 100%;
+  margin: 0;
+  color: #221810;
+  font-size: 2rem;
+  line-height: 1.16;
+  text-align: center;
+  text-wrap: balance;
+  text-shadow: 0 1px 0 rgba(255, 246, 214, 0.45);
+}
+
+.hotspot {
+  position: absolute;
+  z-index: 2;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.home-guide-button {
+  position: absolute;
+  z-index: 3;
+  right: 8.3%;
+  top: 6.85%;
+  width: 17.4%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #fff4ab 0 16%, #ffc63b 42%, #f39b12 74%, #d16a05 100%);
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 247, 163, 0.72),
+    inset 0 0 0 7px rgba(169, 80, 0, 0.35),
+    0 7px 15px rgba(42, 15, 0, 0.28);
+  cursor: pointer;
+}
+
+.home-guide-button svg {
+  width: 58%;
+  height: 58%;
+  fill: #fff9df;
+  stroke: #8f4a00;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 2px 0 rgba(82, 35, 0, 0.42));
+}
+
+.close-hotspot {
+  right: 4.5%;
+  top: 20.52%;
+  width: 12.5%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.replay-hotspot {
+  left: 34%;
+  bottom: 4.82%;
+  width: 15%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.tutorial-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  padding: 8%;
+  background: rgba(28, 7, 3, 0.58);
+}
+
+.tutorial-panel {
+  position: relative;
+  width: min(100%, 29rem);
+  border: 0.35rem solid rgba(118, 91, 9, 0.92);
+  border-radius: 0.5rem;
+  padding: clamp(1.1rem, 5vw, 2rem);
+  background:
+    radial-gradient(circle at 50% 2%, rgba(255, 244, 198, 0.78), transparent 32%),
+    linear-gradient(90deg, #f2c276, #f8d89d 48%, #efbc70);
+  box-shadow: 0 1.25rem 3rem rgba(16, 5, 0, 0.42);
+}
+
+.tutorial-panel h1 {
+  margin: 0 2.4rem 0.9rem 0;
+  font-size: clamp(1.35rem, 5.7vw, 2.9rem);
+  line-height: 1.08;
+}
+
+.tutorial-panel ol {
+  margin: 0;
+  padding-left: 1.25em;
+  font-family: ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(0.94rem, 3.65vw, 1.65rem);
+  line-height: 1.42;
+  font-weight: 650;
+}
+
+.tutorial-panel li + li {
+  margin-top: 0.45rem;
+}
+
+.tutorial-close {
+  position: absolute;
+  right: 0.55rem;
+  top: 0.55rem;
+  width: clamp(2.05rem, 9vw, 3.25rem);
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #fff4ab 0 16%, #ffc63b 42%, #f39b12 74%, #d16a05 100%);
+  color: #fff9df;
+  font-family: ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(1.55rem, 7vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 2px 0 #8f4a00;
+  cursor: pointer;
+}
+
+@media (min-width: 780px) {
+  .phone-frame {
+    width: min(430px, calc(100dvh * 1320 / 2343));
+    height: min(100dvh, calc(430px * 2343 / 1320));
+  }
+
+}

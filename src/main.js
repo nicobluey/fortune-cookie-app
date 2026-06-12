@@ -1,13 +1,14 @@
 import './styles.css';
-import frameOne from '../IMG_0205.PNG';
-import frameTwo from '../IMG_0206.PNG';
-import frameThree from '../IMG_0207.PNG';
-import frameFour from '../IMG_0208.PNG';
-import frameFortune from '../IMG_0209.PNG';
+import frameOne from './assets/frame-1.webp';
+import frameTwo from './assets/frame-2.webp';
+import frameThree from './assets/frame-3.webp';
+import frameFour from './assets/frame-4.webp';
+import frameFortune from './assets/frame-fortune.webp';
 import { fortunes } from './fortunes.js';
 
 const app = document.querySelector('#app');
 const frames = [frameOne, frameTwo, frameThree, frameFour, frameFortune];
+const preloadedFrames = new Set();
 
 let step = 0;
 let fortune = pickFortune();
@@ -18,6 +19,8 @@ window.addEventListener('resize', () => {
     requestAnimationFrame(fitFortuneText);
   }
 });
+
+preloadFrames();
 
 function pickFortune() {
   const forcedFortune = new URLSearchParams(window.location.search).get('fortune');
@@ -132,6 +135,17 @@ function render() {
 
   if (step === frames.length - 1) {
     requestAnimationFrame(fitFortuneText);
+  }
+}
+
+function preloadFrames() {
+  for (const frame of frames) {
+    if (preloadedFrames.has(frame)) continue;
+
+    const image = new Image();
+    image.decoding = 'async';
+    image.src = frame;
+    preloadedFrames.add(frame);
   }
 }
 
